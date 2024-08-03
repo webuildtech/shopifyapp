@@ -1,0 +1,35 @@
+{% comment %}
+  <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}" type="text/css">
+{% endcomment %}
+
+<script>
+  window.AIUpsello = window.AIUpsello || {
+    config: {
+      moneyWithCurrencyFormat: "{{ shop.money_with_currency_format }}",
+      template: "{{ template }}",
+      cart: {{ cart | json }},
+        product: {
+          handle: "{{ product.handle }}",
+          id: "{{ product.id }}",
+          variants: {{ product.variants | json }},
+        },
+      addedNodes: [],
+    }
+  }
+</script>
+
+{% render 'jquery' %}
+
+{% comment %}
+  <script src="{{ 'sales-booster-embed.js' | asset_url }}"></script>
+{% endcomment %}
+
+{% schema %}
+{
+  "name": "AI UPSELLO - App Embed",
+  "target": "body",
+  "javascript": "sales-booster-embed.js",
+  "stylesheet": "styles.css",
+  "settings": []
+}
+{% endschema %}

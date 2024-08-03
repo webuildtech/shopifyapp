@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@shopify/polaris@10.37.0/build/esm/styles.css"
+    />
+    <meta itemprop="hasMerchantReturnPolicy" content="true" />
+    <title>My App</title>
+  </head>
+  <body>
+    <div class="Polaris-Page">
+      <!-- Simple page asking user to enter shop domain to install app.
+      Should contain: title: "AI Upsello", subtitle: "Enter your shop's domain to install this app."
+      Input field should have a placeholder: "shop-name.myshopify.com", and polaris design (outlined)
+      Button: "Install"
+      Input field and install button should be on the same line.
+      
+      When install button is clicked, redirect to the install route (/?shop="shop domain input field value")
+      Everything should be centered on the page. And form should be displayed as a card.
+      Simple, beatiful, modern design.
+    -->
+      <div class="Polaris-Page__Content">
+        <div class="Polaris-Layout">
+          <div class="Polaris-Layout__AnnotatedSection">
+            <div class="Polaris-Layout__AnnotationWrapper">
+              <div class="Polaris-Layout__Annotation">
+                <div class="Polaris-TextContainer">
+                  <h1
+                    class="Polaris-DisplayText Polaris-DisplayText--sizeLarge"
+                  >
+                    AI Upsello
+                  </h1>
+                  <p class="Polaris-TextStyle--variationSubdued">
+                    Enter your shop's domain to install this app.
+                  </p>
+                </div>
+              </div>
+              <div class="Polaris-Layout__AnnotationContent">
+                <div class="Polaris-Card">
+                  <div class="Polaris-Card__Section">
+                    <div class="Polaris-FormLayout">
+                      <div class="Polaris-FormLayout__Item">
+                        <div class="Polaris-TextField">
+                          <input
+                            id="shop"
+                            name="shop"
+                            placeholder="shop-name.myshopify.com"
+                            class="Polaris-TextField__Input"
+                            aria-invalid="false"
+                            aria-labelledby="PolarisTextField1Label"
+                            aria-multiline="false"
+                            value=""
+                          />
+                          <div class="Polaris-TextField__Backdrop"></div>
+                        </div>
+                      </div>
+                      <div class="Polaris-FormLayout__Item">
+                        <div class="Polaris-ButtonGroup">
+                          <div class="Polaris-ButtonGroup__Item">
+                            <a
+                              onClick="window.location.href = '/api/auth?shop=' + document.getElementById('shop').value"
+                              class="Polaris-Button Polaris-Button--primary"
+                            >
+                              <span class="Polaris-Button__Content">
+                                <span class="Polaris-Button__Text"
+                                  >Install</span
+                                >
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      /* Center the page vertically */
+      .Polaris-Page {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: calc(100vh - 100px);
+      }
+
+      .Polaris-Layout__Annotation{
+        text-align: center;
+      }
+
+      .Polaris-ButtonGroup{
+        display: flex;
+        justify-content: center;
+      }
+
+      .Polaris-TextField__Input{
+        text-align: center;
+      }
+
+      .Polaris-Page__Content{
+        max-width: 500px;
+      }
+
+    </style>
+  </body>
+</html>
